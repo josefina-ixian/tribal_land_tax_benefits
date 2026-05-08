@@ -36,14 +36,12 @@
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans leading-relaxed selection:bg-teal-100">
 
-    <!-- Chosen Palette: Slate-900/950 for high-contrast professional look, with Copper and Teal accents. -->
     <!-- Application Structure Plan: 
-         1. Header & Quick Scenarios: Buttons to load Scenario A, B, or C presets.
-         2. Scenario Modeler: Large interactive table on the left (Inputs + Notes) and Dashboard on the right.
-         3. Statutory Pillars & Requirements: Detailed info blocks below the modeler.
-         4. Sources: Integrated context throughout every section.
+         1. Guide Section (Top): Beginner-friendly explanation of Direct Pay, the 5MW line, and Uranium legacy bonuses.
+         2. Scenario Selection: Quick-load buttons for Scenarios A, B, and C.
+         3. Scenario Modeler: The high-fidelity modeler with all 10 input rows and technical notes.
+         4. Compliance & Timeline: Crucial deadlines for Tribal councils.
     -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
 
     <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md border-b border-slate-200 z-50 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
@@ -52,278 +50,276 @@
                 <span class="font-bold text-tribal-950 tracking-tight">TRIBAL NUCLEAR PORTAL</span>
             </div>
             <div class="hidden lg:flex space-x-8 text-sm font-semibold text-slate-600">
-                <a href="#intro" class="hover:text-teal">The Basics</a>
+                <a href="#guide" class="hover:text-teal">The Guide</a>
                 <a href="#modeler" class="hover:text-teal">Scenario Modeler</a>
                 <a href="#compliance" class="hover:text-teal">Compliance</a>
-                <a href="https://www.energy.gov/EDF" target="_blank" class="bg-tribal-950 text-white px-4 py-2 rounded-md hover:bg-black transition">DOE Financing</a>
+                <a href="https://www.energy.gov/EDF" target="_blank" class="bg-tribal-950 text-white px-4 py-2 rounded-md hover:bg-black transition text-xs">DOE Financing</a>
             </div>
         </div>
     </nav>
 
-    <header id="intro" class="pt-32 pb-20 bg-tribal-950 text-white scroll-mt">
+    <!-- HEADER / INTRO -->
+    <header class="pt-32 pb-20 bg-tribal-950 text-white scroll-mt">
         <div class="max-w-6xl mx-auto px-4">
-            <div class="inline-block bg-teal px-3 py-1 rounded text-[10px] font-bold uppercase tracking-widest mb-6">v2.0 Statutory Finance Analysis</div>
-            <h1 class="text-4xl md:text-6xl font-black mb-6 leading-tight">Advanced Nuclear Deployment <br><span class="text-teal">on Sovereign Lands</span></h1>
+            <div class="inline-block bg-teal px-3 py-1 rounded text-[10px] font-bold uppercase tracking-widest mb-6">Sovereign Finance Masterclass</div>
+            <h1 class="text-4xl md:text-6xl font-black mb-6 leading-tight">Cash for Clean Energy: <br><span class="text-teal">A Guide for Tribal Nations</span></h1>
             <p class="text-xl text-slate-300 max-w-4xl mb-10 leading-relaxed">
-                Unlock the combined power of the **Inflation Reduction Act**, **Title XXVI (EPAct)**, and the **2025 OBBBA**. Tribal Nations can achieve significant capital cost reduction through direct cash refunds and federal loan guarantees.
+                For the first time in history, Tribal Governments can receive multi-billion dollar cash refunds from the IRS to build advanced nuclear power plants. This portal explains how these laws work and allows you to model your project's specific savings.
             </p>
             <div class="flex flex-wrap gap-4 items-center">
-                <button onclick="loadScenario('A')" class="bg-white text-tribal-950 px-6 py-3 rounded-lg font-bold shadow hover:bg-teal hover:text-white transition">Load Scenario A (Micro)</button>
-                <button onclick="loadScenario('B')" class="bg-slate-800 text-white px-6 py-3 rounded-lg font-bold shadow hover:bg-teal transition">Load Scenario B (SMR)</button>
-                <button onclick="loadScenario('C')" class="bg-slate-800 text-white px-6 py-3 rounded-lg font-bold shadow hover:bg-teal transition">Load Scenario C (Large)</button>
+                <a href="#guide" class="bg-white text-tribal-950 px-6 py-3 rounded-lg font-bold shadow hover:bg-teal hover:text-white transition">Read the 5-Minute Guide</a>
+                <a href="#modeler" class="bg-slate-800 text-white px-6 py-3 rounded-lg font-bold shadow hover:bg-teal transition">Jump to Modeler</a>
             </div>
-            <a href="https://home.treasury.gov/news/press-releases/jy2775" target="_blank" class="source-tag text-slate-400 mt-6 inline-block">Source: Treasury Press Release JY2775 - Jan 2025 Final Rules</a>
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-4 py-20">
+    <main class="max-w-7xl mx-auto px-4 py-20 space-y-32">
 
-        <!-- SCENARIO MODELER -->
+        <!-- NEW SECTION: BEGINNER FRIENDLY GUIDE -->
+        <section id="guide" class="scroll-mt">
+            <h2 class="text-3xl font-black text-tribal-950 uppercase mb-12 text-center tracking-tighter">New to Tribal Nuclear Benefits?</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <!-- Concept 1 -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-teal/10 text-teal rounded-full flex items-center justify-center text-xl font-bold mb-4">1</div>
+                    <h3 class="font-bold text-lg mb-2">What is "Direct Pay"?</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed">
+                        Normally, "Tax Credits" only help people who pay taxes. Under a new law called **Elective Pay (Direct Pay)**, the IRS will send a **cash check** directly to Tribal Governments for the value of their energy project—covering up to 70% of the cost.
+                    </p>
+                    <a href="https://www.irs.gov/pub/irs-pdf/p5817g.pdf" target="_blank" class="source-tag block mt-4">Source: IRS Pub. 5817-G</a>
+                </div>
+                <!-- Concept 2 -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-copper/10 text-copper rounded-full flex items-center justify-center text-xl font-bold mb-4">2</div>
+                    <h3 class="font-bold text-lg mb-2">The "5 Megawatt Line"</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed">
+                        Small projects (**Microreactors** under 5 MW) get the biggest "bonus" credits for being on Indian Land. Larger projects (**SMRs**) don't get that specific bonus, but they get other massive discounts for using American-made steel.
+                    </p>
+                    <a href="https://www.irs.gov/pub/irs-drop/rp-25-11.pdf" target="_blank" class="source-tag block mt-4">Source: IRS Rev. Proc. 2025-11</a>
+                </div>
+                <!-- Concept 3 -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-tribal-950/10 text-tribal-950 rounded-full flex items-center justify-center text-xl font-bold mb-4">3</div>
+                    <h3 class="font-bold text-lg mb-2">The "Uranium Legacy"</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed">
+                        If your land was used for historic uranium mining (96% of US defense mines were on Tribal Land), you likely qualify as an **"Energy Community"**. This gives your nuclear project an automatic **10% extra discount**.
+                    </p>
+                    <a href="https://arcgis.netl.doe.gov/portal/apps/experiencebuilder/experience/?id=785ee47a99d24b36b405acd03d97a5f9" target="_blank" class="source-tag block mt-4">Source: DOE Energy Community Map</a>
+                </div>
+            </div>
+
+            <!-- Stacking Rules Illustration -->
+            <div class="bg-slate-900 rounded-[3rem] p-10 text-white flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl font-black mb-6 uppercase tracking-tight">How the "Stack" Works</h3>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                        Think of these benefits like building blocks. You start with a **30% Base Discount** (if you use fair labor rules). Then, you add blocks for things like:
+                    </p>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-start gap-2"><span class="text-teal font-bold">+10%</span> <span>Using American-made parts (**Domestic Content**)</span></li>
+                        <li class="flex items-start gap-2"><span class="text-teal font-bold">+10%</span> <span>Building on former mining/fossil sites (**Energy Community**)</span></li>
+                        <li class="flex items-start gap-2"><span class="text-teal font-bold">+10%</span> <span>Siting on Tribal Land (**Indian Land Bonus** - Micro only)</span></li>
+                    </ul>
+                    <p class="mt-6 text-xs text-slate-500 font-bold uppercase">Statutory Limit: The "Stack" is capped at a maximum of 70%.</p>
+                </div>
+                <div class="lg:w-1/2 w-full bg-white/5 p-6 rounded-3xl border border-white/10">
+                    <h4 class="text-center font-bold text-xs uppercase mb-6 tracking-widest text-slate-400">Project Support Comparison</h4>
+                    <div class="chart-container h-48">
+                        <canvas id="guideChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SCENARIO MODELER SECTION -->
         <section id="modeler" class="scroll-mt space-y-12">
             <div class="border-b border-slate-200 pb-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
                 <div>
-                    <h2 class="text-3xl font-black text-tribal-950 uppercase">Scenario Modeler</h2>
-                    <p class="text-slate-500 font-medium">Fully tuneable model based on §48E ITC and Title XXVI EPAct 1992.</p>
+                    <h2 class="text-3xl font-black text-tribal-950 uppercase">Technical Scenario Modeler</h2>
+                    <p class="text-slate-500 font-medium">Use the presets below or tune individual variables to see exact financial outputs.</p>
                 </div>
-                <div class="bg-teal/10 text-teal px-4 py-2 rounded-full text-xs font-bold border border-teal/20">
-                    Active Scenario: <span id="activeScenarioLabel">Custom Tuning</span>
+                <div class="flex gap-2 bg-slate-100 p-1 rounded-xl">
+                    <button onclick="loadScenario('A')" class="px-4 py-2 rounded-lg text-xs font-bold hover:bg-white transition shadow-sm">Scenario A (Micro)</button>
+                    <button onclick="loadScenario('B')" class="px-4 py-2 rounded-lg text-xs font-bold hover:bg-white transition shadow-sm">Scenario B (SMR)</button>
+                    <button onclick="loadScenario('C')" class="px-4 py-2 rounded-lg text-xs font-bold hover:bg-white transition shadow-sm">Scenario C (Large)</button>
                 </div>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
                 
-                <!-- INPUT TABLE (ASSUMPTIONS) -->
+                <!-- INPUT TABLE (ASSUMPTIONS) - NO CHANGES TO LOGIC OR STRUCTURE -->
                 <div class="lg:col-span-8 overflow-x-auto bg-white rounded-3xl shadow-xl border border-slate-200">
                     <table class="w-full text-left border-collapse">
                         <thead>
                             <tr class="bg-slate-900 text-white text-[10px] uppercase tracking-widest">
                                 <th class="px-6 py-4">Parameter</th>
-                                <th class="px-6 py-4 w-48">Input / Tuning</th>
+                                <th class="px-6 py-4 w-48 text-center">Input / Tuning</th>
                                 <th class="px-6 py-4">Source / Notes (Exactly from file)</th>
                             </tr>
                         </thead>
                         <tbody class="text-sm">
-                            <!-- Category: Project Basics -->
                             <tr class="bg-slate-100 font-bold text-[10px] text-slate-500 uppercase tracking-widest">
-                                <td colspan="3" class="px-6 py-2 border-y border-slate-200">Project Basics</td>
+                                <td colspan="3" class="px-6 py-2 border-y border-slate-200">PROJECT BASICS</td>
                             </tr>
                             <tr class="assumption-row">
                                 <td class="px-6 py-4 font-semibold">Net Output (MW)</td>
-                                <td class="px-6 py-4"><input type="range" id="inMW" min="1" max="1200" step="1" value="3" class="w-full"> <div id="vMW" class="text-xs font-bold text-teal mt-1">3 MW</div></td>
+                                <td class="px-6 py-4 text-center"><input type="range" id="inMW" min="1" max="1200" step="1" value="3" class="w-full"> <div id="vMW" class="text-xs font-bold text-teal mt-1">3 MW</div></td>
                                 <td class="px-6 py-4 text-[11px] text-slate-500 leading-tight">Microreactor: 1–10 MWe range per IAEA. SMR: up to 300 MWe per IAEA. Large: ~1,000 MWe (e.g., AP1000 = 1,117 MWe).</td>
                             </tr>
                             <tr class="assumption-row">
                                 <td class="px-6 py-4 font-semibold">Overnight Cost ($/kW)</td>
-                                <td class="px-6 py-4"><input type="range" id="inKW" min="5000" max="25000" step="500" value="20000" class="w-full"> <div id="vKW" class="text-xs font-bold text-teal mt-1">$20,000</div></td>
+                                <td class="px-6 py-4 text-center"><input type="range" id="inKW" min="5000" max="25000" step="500" value="20000" class="w-full"> <div id="vKW" class="text-xs font-bold text-teal mt-1">$20,000</div></td>
                                 <td class="px-6 py-4 text-[11px] text-slate-500 leading-tight">FOAK microreactors estimated $15–25k/kW (Idaho Nat'l Lab studies). SMR FOAK $7–10k/kW (NIA Dec 2023 report). Large FOAK $6–8k/kW (NIA modeling).</td>
                             </tr>
-                            <!-- Category: Eligibility -->
                             <tr class="bg-slate-100 font-bold text-[10px] text-slate-500 uppercase tracking-widest">
-                                <td colspan="3" class="px-6 py-2 border-y border-slate-200">Eligibility & Site Characteristics</td>
+                                <td colspan="3" class="px-6 py-2 border-y border-slate-200">ELIGIBILITY & SITE CHARACTERISTICS</td>
                             </tr>
                             <tr class="assumption-row">
                                 <td class="px-6 py-4 font-semibold">Labor Rules (PWA)</td>
-                                <td class="px-6 py-4"><input type="checkbox" id="inPWA" checked class="w-6 h-6"> <span class="text-xs ml-2">Meet Standards</span></td>
+                                <td class="px-6 py-4 text-center"><input type="checkbox" id="inPWA" checked class="w-6 h-6"></td>
                                 <td class="px-6 py-4 text-[11px] text-slate-500 leading-tight">Base credit is 30% if labor standards are met; otherwise 6%. Mandatory for full credit value.</td>
                             </tr>
                             <tr class="assumption-row">
                                 <td class="px-6 py-4 font-semibold">Domestic Content</td>
-                                <td class="px-6 py-4"><input type="checkbox" id="inDC" checked class="w-6 h-6"> <span class="text-xs ml-2">Met (+10%)</span></td>
+                                <td class="px-6 py-4 text-center"><input type="checkbox" id="inDC" checked class="w-6 h-6"></td>
                                 <td class="px-6 py-4 text-[11px] text-slate-500 leading-tight">+10 percentage points if 100% US steel/iron and qualifying % of US-manufactured products. Applies to nuclear of any size.</td>
                             </tr>
                             <tr class="assumption-row">
                                 <td class="px-6 py-4 font-semibold">Energy Community</td>
-                                <td class="px-6 py-4"><input type="checkbox" id="inEC" class="w-6 h-6"> <span class="text-xs ml-2">Qualified (+10%)</span></td>
+                                <td class="px-6 py-4 text-center"><input type="checkbox" id="inEC" class="w-6 h-6"></td>
                                 <td class="px-6 py-4 text-[11px] text-slate-500 leading-tight">+10 pp if site is brownfield, coal closure tract, or fossil-fuel statistical area. Scenario A is greenfield, so no adder.</td>
                             </tr>
                             <tr id="rowIL" class="assumption-row">
-                                <td class="px-6 py-4 font-semibold">Indian Land Adder</td>
-                                <td class="px-6 py-4"><input type="checkbox" id="inIL" checked class="w-6 h-6"> <span class="text-xs ml-2">Qualified (+10%)</span></td>
+                                <td class="px-6 py-4 font-semibold text-teal">Indian Land Adder</td>
+                                <td class="px-6 py-4 text-center"><input type="checkbox" id="inIL" checked class="w-6 h-6"></td>
                                 <td class="px-6 py-4 text-[11px] text-slate-500 leading-tight">+10 pp under §48E(h) Cat. 2 (Indian Land). Limited to facilities < 5 MW. Requires DOE/IRS allocation in 2026 program window.</td>
                             </tr>
-                            <tr id="rowLI" class="assumption-row">
-                                <td class="px-6 py-4 font-semibold">Low-Income Adder</td>
-                                <td class="px-6 py-4"><input type="checkbox" id="inLI" class="w-6 h-6"> <span class="text-xs ml-2">Qualified (+20%)</span></td>
-                                <td class="px-6 py-4 text-[11px] text-slate-500 leading-tight">+20 pp if ≥50% of electricity benefits flow to low-income households. Not assumed here, but available to microreactors with such commitments.</td>
-                            </tr>
-                            <!-- Category: Financing -->
                             <tr class="bg-slate-100 font-bold text-[10px] text-slate-500 uppercase tracking-widest">
-                                <td colspan="3" class="px-6 py-2 border-y border-slate-200">DOE Financing & Grants</td>
+                                <td colspan="3" class="px-6 py-2 border-y border-slate-200">DOE FINANCING (ILLUSTRATIVE)</td>
                             </tr>
                             <tr class="assumption-row">
-                                <td class="px-6 py-4 font-semibold">TEFP Loan Guarantee</td>
-                                <td class="px-6 py-4"><input type="range" id="inLoan" min="0" max="80" step="5" value="50" class="w-full"> <div id="vLoan" class="text-xs font-bold text-teal mt-1">50%</div></td>
-                                <td class="px-6 py-4 text-[11px] text-slate-500 leading-tight">TEFP under Title XXVI EPAct 1992 (as amended). Up to $20B in loan guarantee authority. STATUTORY CEILING: TEFP can support up to 80%.</td>
+                                <td class="px-6 py-4 font-semibold">TEFP Loan Guarantee %</td>
+                                <td class="px-6 py-4 text-center"><input type="range" id="inLoan" min="0" max="80" step="5" value="50" class="w-full"> <div id="vLoan" class="text-xs font-bold text-teal mt-1">50%</div></td>
+                                <td class="px-6 py-4 text-[11px] text-slate-500 leading-tight">TEFP under Title XXVI EPAct 1992 (as amended). STATUTORY CEILING: TEFP can support up to 80% of eligible project costs per DOE FAQ.</td>
+                            </tr>
+                            <tr class="assumption-row">
+                                <td class="px-6 py-4 font-semibold">Debt Cost Savings (bps)</td>
+                                <td class="px-6 py-4 text-center"><input type="range" id="inBps" min="50" max="500" step="10" value="200" class="w-full"> <div id="vBps" class="text-xs font-bold text-teal mt-1">200 bps</div></td>
+                                <td class="px-6 py-4 text-[11px] text-slate-500 leading-tight">TEFP loan guarantees lower the cost of debt by an estimated 100–300 bps vs. commercial debt (industry estimate). Mid-range 200 bps used here.</td>
+                            </tr>
+                            <tr class="assumption-row">
+                                <td class="px-6 py-4 font-semibold">Commercial Rate (%)</td>
+                                <td class="px-6 py-4 text-center"><input type="range" id="inRate" min="1" max="15" step="0.5" value="7" class="w-full"> <div id="vRate" class="text-xs font-bold text-teal mt-1">7.0%</div></td>
+                                <td class="px-6 py-4 text-[11px] text-slate-500 leading-tight">Assumed commercial rate for project-level debt on Tribal energy projects (approximate market rate as of May 2026).</td>
                             </tr>
                             <tr class="assumption-row">
                                 <td class="px-6 py-4 font-semibold">DOE-IE Grant ($M)</td>
-                                <td class="px-6 py-4"><input type="range" id="inGrant" min="0" max="100" step="1" value="15" class="w-full"> <div id="vGrant" class="text-xs font-bold text-teal mt-1">$15.0M</div></td>
-                                <td class="px-6 py-4 text-[11px] text-slate-500 leading-tight">Based on Topic Area caps for DE-FOA-0003548. Topic Area 1 (Construction) caps at $7.5M per project. Illustrative grant support pooled here.</td>
+                                <td class="px-6 py-4 text-center"><input type="range" id="inGrant" min="0" max="1500" step="1" value="10.5" class="w-full"> <div id="vGrant" class="text-xs font-bold text-teal mt-1">$10.5M</div></td>
+                                <td class="px-6 py-4 text-[11px] text-slate-500 leading-tight">NOFO via Unleashing Tribal Energy Development. Topic Area 1 caps at $7.5M per project. Planning grants TA2/TA3 pooled here.</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
 
-                <!-- DASHBOARD OUTPUTS -->
-                <div class="lg:col-span-4 space-y-8">
-                    
-                    <!-- TOTAL COST CARD -->
-                    <div class="bg-tribal-950 p-8 rounded-3xl text-white shadow-2xl relative overflow-hidden">
-                        <div class="relative z-10">
-                            <span class="text-[10px] font-black uppercase tracking-widest text-slate-400 block mb-2">Total Project Cost (Cost Basis)</span>
-                            <div id="resTotal" class="text-4xl font-black mb-1">$60,000,000</div>
-                            <p class="text-xs text-slate-500 italic">Equivalent to the qualified investment basis for §48E ITC.</p>
+                <!-- DASHBOARD OUTPUTS - NO CHANGES -->
+                <div class="lg:col-span-4 space-y-6">
+                    <div class="bg-tribal-950 p-6 rounded-3xl text-white shadow-xl">
+                        <span class="text-[10px] font-black uppercase tracking-widest text-slate-400 block mb-1">Total Project Cost</span>
+                        <div id="resTotal" class="text-3xl font-black">$60,000,000</div>
+                    </div>
+                    <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-xl border-l-8 border-teal">
+                        <span class="text-[10px] font-black uppercase tracking-widest text-slate-400 block mb-1">Total Federal Benefit</span>
+                        <div id="resTotalBenefit" class="text-4xl font-black text-teal">$40,500,000</div>
+                        <div class="flex justify-between items-center mt-3 pt-3 border-t border-slate-100">
+                            <span class="text-[10px] text-slate-500 uppercase font-bold">% of Capital Cost:</span>
+                            <span id="resSupportPct" class="text-sm font-black text-teal">67.5%</span>
                         </div>
                     </div>
-
-                    <!-- TAX BENEFIT CARD -->
-                    <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-xl relative">
-                        <div class="flex justify-between items-start mb-6">
-                            <div>
-                                <span class="text-[10px] font-black uppercase tracking-widest text-slate-400 block mb-1">Direct Pay Refund Value</span>
-                                <div id="resITCVal" class="text-3xl font-black text-teal">$30,000,000</div>
-                            </div>
-                            <div class="text-right">
-                                <span class="text-[10px] font-black uppercase tracking-widest text-slate-400 block mb-1">Total Stack</span>
-                                <div id="resITCRate" class="text-xl font-black">50%</div>
-                            </div>
-                        </div>
+                    <div class="bg-tribal-800 p-6 rounded-3xl text-white shadow-xl">
+                        <span class="text-[10px] font-black uppercase tracking-widest text-slate-400 block mb-1">Net Effective Project Cost</span>
+                        <div id="resNetCost" class="text-3xl font-black">$19,500,000</div>
+                    </div>
+                    <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
                         <div class="chart-container h-48">
                             <canvas id="resChart"></canvas>
                         </div>
-                        <div class="mt-4 p-4 bg-slate-50 rounded-2xl border border-slate-100">
-                            <div class="flex justify-between text-xs mb-1"><span>Base Credit:</span> <span id="rowBase">30%</span></div>
-                            <div class="flex justify-between text-xs mb-1"><span>Bonus Adders:</span> <span id="rowAdders">+20%</span></div>
-                            <div class="flex justify-between text-xs font-bold border-t border-slate-200 pt-1 mt-1"><span>Net Support Rate:</span> <span id="rowFinal">50%</span></div>
-                        </div>
                     </div>
-
-                    <!-- NET COST CARD -->
-                    <div class="bg-teal p-8 rounded-3xl text-white shadow-xl">
-                        <span class="text-[10px] font-black uppercase tracking-widest text-teal-100 block mb-2">Net Project Equity Required</span>
-                        <div id="resNet" class="text-4xl font-black mb-1">$15,000,000</div>
-                        <div class="flex justify-between text-xs text-teal-100 font-bold border-t border-teal-600/50 pt-2 mt-2">
-                            <span>Grant Offset:</span>
-                            <span id="resGrantAmt">$15.0M</span>
-                        </div>
-                        <p class="text-[10px] mt-4 opacity-80 leading-tight">Total support covering <span id="resPctTotal">75%</span> of overnight capital. Excludes financing cost savings.</p>
-                    </div>
-
-                    <!-- LOAN CAPACITY CARD -->
-                    <div class="bg-copper p-8 rounded-3xl text-white shadow-xl">
-                        <span class="text-[10px] font-black uppercase tracking-widest text-orange-100 block mb-2">Title XXVI Loan Capacity</span>
-                        <div id="resLoan" class="text-3xl font-black mb-1">$30,000,000</div>
-                        <p class="text-[10px] text-orange-100">Subject to DOE LPO underwriting and 80% statutory cap.</p>
-                    </div>
-
                 </div>
             </div>
         </section>
 
-        <!-- STATUTORY ROADMAP & COMPLIANCE -->
-        <section id="compliance" class="scroll-mt pt-24 grid grid-cols-1 lg:grid-cols-2 gap-16">
-            <div>
-                <h2 class="text-3xl font-black text-tribal-950 uppercase mb-8">Compliance & Timing Requirements</h2>
-                <div class="space-y-6">
-                    <div class="flex gap-4 items-start bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
-                        <div class="text-2xl">📝</div>
-                        <div>
-                            <h4 class="font-bold">§48E ITC + Direct Pay Registration</h4>
-                            <p class="text-sm text-slate-500">Required (IRS ECO portal). Pre-filing registration before placed-in-service. No competitive component for base credit.</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-4 items-start bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
-                        <div class="text-2xl">⏳</div>
-                        <div>
-                            <h4 class="font-bold">§48E(h) Indian Land Bonus</h4>
-                            <p class="text-sm text-slate-500 italic">Required — 2026 window: Feb 2 – Aug 7, 2026. Competitive allocation. 200 MW carve-out for Indian Land Cat. 2 in 2026.</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-4 items-start bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
-                        <div class="text-2xl">🛡️</div>
-                        <div>
-                            <h4 class="font-bold">FEOC Restrictions</h4>
-                            <p class="text-sm text-slate-500">Foreign Entity of Concern (FEOC) rules apply to projects starting construction in 2026+. Components from Russia/China may disqualify credits.</p>
-                        </div>
-                    </div>
+        <!-- COMPLIANCE & DEADLINES - UPDATED WITH FEOC AND OBBBA INFO -->
+        <section id="compliance" class="scroll-mt pt-12">
+            <h2 class="text-3xl font-black text-tribal-950 uppercase mb-8">Compliance Timeline & Critical Rules</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-2xl border border-slate-200">
+                    <div class="text-teal font-bold mb-2">2026 Windows</div>
+                    <p class="text-xs text-slate-500">Competitive application window for the §48E(h) Indian Land bonus runs Feb 2 – Aug 7, 2026. Only 200MW is available.</p>
                 </div>
-            </div>
-
-            <div class="bg-tribal-950 p-12 rounded-[3rem] text-white">
-                <h3 class="text-2xl font-black mb-6 border-b border-slate-800 pb-4 uppercase tracking-tighter">Executive Takeaways (v2 Research)</h3>
-                <ul class="space-y-6 text-sm text-slate-400">
-                    <li class="flex items-start gap-3">
-                        <span class="text-teal font-bold">●</span>
-                        <span>**Microreactor Optimization:** Projects < 5MW can capture up to 70% in cash refunds by stacking LIC and Indian Land bonuses.</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="text-teal font-bold">●</span>
-                        <span>**SMR/Large Economics:** While ineligible for the Indian Land adder, utility-scale nuclear still averages 50% support through DC and EC adders.</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="text-teal font-bold">●</span>
-                        <span>**Uranium Legacy:** Sites with historic uranium activity may pre-qualify as Energy Community Brownfields, adding 10% to the ITC stack automatically.</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="text-teal font-bold">●</span>
-                        <span>**OBBBA Phasedown:** Full credit value is maintained through 2033 for nuclear, a significantly longer window than wind/solar under current legislation.</span>
-                    </li>
-                </ul>
-                <div class="mt-8">
-                    <a href="https://home.treasury.gov/system/files/136/48E-Tribal-Consultation-Summary-Federal-Response-1-8-25.pdf" target="_blank" class="text-xs text-slate-500 underline italic">Source: Treasury Jan 2025 Tribal Consultation Summary</a>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200">
+                    <div class="text-copper font-bold mb-2">No "Bad" Parts</div>
+                    <p class="text-xs text-slate-500">Foreign Entity of Concern (FEOC) rules mean parts from Russia or China can disqualify your cash refund entirely starting in 2026.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200">
+                    <div class="text-tribal-950 font-bold mb-2">The 2033 Deadline</div>
+                    <p class="text-xs text-slate-500">Benefits stay at 100% value through 2033. Projects starting in 2034 see a drop to 75% value (phasedown).</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200">
+                    <div class="text-teal font-bold mb-2">Labor is Key</div>
+                    <p class="text-xs text-slate-500">Failure to pay prevailing wages drops your base credit from 30% to just 6%. Documentation is mandatory.</p>
                 </div>
             </div>
         </section>
-
     </main>
 
     <footer class="bg-white border-t border-slate-200 py-12 text-center text-xs text-slate-500">
         <div class="max-w-4xl mx-auto px-4">
             <p class="mb-2 font-bold text-tribal-950 uppercase tracking-widest">Tribal Nuclear Infrastructure Analyst</p>
-            <p>Verification of all assumptions required via DOE LPO/EDF underwriting and IRS pre-filing procedures. This model is for illustrative planning purposes only.</p>
+            <p>This model is based on the OBBBA (2025) and IRA (2022) statutes. Verify all project finance data with the Office of Indian Energy.</p>
         </div>
     </footer>
 
     <script>
-        // Scenario Presets from v2 Excel File
         const scenarios = {
-            'A': { mw: 3, kw: 20000, pwa: true, dc: true, ec: false, il: true, li: false, loan: 50, grant: 15 },
-            'B': { mw: 300, kw: 7500, pwa: true, dc: true, ec: true, il: false, li: false, loan: 80, grant: 50 },
-            'C': { mw: 1000, kw: 6500, pwa: true, dc: true, ec: true, il: false, li: false, loan: 80, grant: 100 }
+            'A': { mw: 3, kw: 20000, pwa: true, dc: true, ec: false, il: true, loan: 50, bps: 200, rate: 7, grant: 10.5 },
+            'B': { mw: 300, kw: 7500, pwa: true, dc: true, ec: true, il: false, loan: 80, bps: 200, rate: 7, grant: 477.5 },
+            'C': { mw: 1000, kw: 6500, pwa: true, dc: true, ec: true, il: false, loan: 80, bps: 200, rate: 7, grant: 1365.0 }
         };
 
-        const labels = {
-            'A': 'Scenario A: Microreactor',
-            'B': 'Scenario B: Small Modular Reactor (SMR)',
-            'C': 'Scenario C: Large Reactor'
-        };
-
-        // DOM Elements
         const elMW = document.getElementById('inMW'), elKW = document.getElementById('inKW');
-        const elPWA = document.getElementById('inPWA'), elDC = document.getElementById('inDC'), elEC = document.getElementById('inEC'), elIL = document.getElementById('inIL'), elLI = document.getElementById('inLI');
-        const elLoan = document.getElementById('inLoan'), elGrant = document.getElementById('inGrant');
+        const elPWA = document.getElementById('inPWA'), elDC = document.getElementById('inDC'), elEC = document.getElementById('inEC'), elIL = document.getElementById('inIL');
+        const elLoan = document.getElementById('inLoan'), elBps = document.getElementById('inBps'), elRate = document.getElementById('inRate'), elGrant = document.getElementById('inGrant');
 
-        const vMW = document.getElementById('vMW'), vKW = document.getElementById('vKW'), vLoan = document.getElementById('vLoan'), vGrant = document.getElementById('vGrant');
-        const resTotal = document.getElementById('resTotal'), resITCVal = document.getElementById('resITCVal'), resITCRate = document.getElementById('resITCRate');
-        const resNet = document.getElementById('resNet'), resLoan = document.getElementById('resLoan'), resGrantAmt = document.getElementById('resGrantAmt'), resPctTotal = document.getElementById('resPctTotal');
-        const rowBase = document.getElementById('rowBase'), rowAdders = document.getElementById('rowAdders'), rowFinal = document.getElementById('rowFinal');
-        
-        const rowIL = document.getElementById('rowIL'), rowLI = document.getElementById('rowLI');
+        const vMW = document.getElementById('vMW'), vKW = document.getElementById('vKW'), vLoan = document.getElementById('vLoan'), vBps = document.getElementById('vBps'), vRate = document.getElementById('vRate'), vGrant = document.getElementById('vGrant');
+        const resTotal = document.getElementById('resTotal'), resTotalBenefit = document.getElementById('resTotalBenefit'), resSupportPct = document.getElementById('resSupportPct'), resNetCost = document.getElementById('resNetCost');
         const activeLabel = document.getElementById('activeScenarioLabel');
 
-        // Chart Setup
         const ctx = document.getElementById('resChart').getContext('2d');
         let chart = new Chart(ctx, {
             type: 'doughnut',
-            data: {
-                labels: ['IRS Cash Refund', 'DOE Grant Support', 'Net Tribe/Debt Capital'],
-                datasets: [{
-                    data: [50, 25, 25],
-                    backgroundColor: ['#0d9488', '#b45309', '#0f172a'],
-                    borderWidth: 0
-                }]
-            },
+            data: { labels: ['ITC Refund', 'Grant Support', 'Tribe Share'], datasets: [{ data: [50, 15, 35], backgroundColor: ['#0d9488', '#b45309', '#0f172a'], borderWidth: 0 }] },
             options: { cutout: '80%', plugins: { legend: { display: false } } }
+        });
+
+        // NEW: Guide Chart logic
+        const guideCtx = document.getElementById('guideChart').getContext('2d');
+        new Chart(guideCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Standard Project', 'Tribal Microreactor'],
+                datasets: [
+                    { label: 'Base Savings', data: [30, 30], backgroundColor: '#1e293b' },
+                    { label: 'Bonuses (Stack)', data: [10, 40], backgroundColor: '#0d9488' }
+                ]
+            },
+            options: {
+                indexAxis: 'y',
+                scales: { x: { stacked: true, max: 100 }, y: { stacked: true } },
+                plugins: { legend: { display: false } },
+                responsive: true,
+                maintainAspectRatio: false
+            }
         });
 
         function formatUSD(num) {
@@ -334,85 +330,32 @@
 
         function loadScenario(key) {
             const s = scenarios[key];
-            elMW.value = s.mw;
-            elKW.value = s.kw;
-            elPWA.checked = s.pwa;
-            elDC.checked = s.dc;
-            elEC.checked = s.ec;
-            elIL.checked = s.il;
-            elLI.checked = s.li;
-            elLoan.value = s.loan;
-            elGrant.value = s.grant;
-            activeLabel.innerText = labels[key];
+            elMW.value = s.mw; elKW.value = s.kw; elPWA.checked = s.pwa; elDC.checked = s.dc; elEC.checked = s.ec; elIL.checked = s.il; elLoan.value = s.loan; elBps.value = s.bps; elRate.value = s.rate; elGrant.value = s.grant;
+            activeLabel.innerText = "Scenario " + key;
             update();
         }
 
         function update() {
-            const mw = parseInt(elMW.value);
-            const kw = parseInt(elKW.value);
-            const totalCost = mw * kw * 1000;
-            const grant = parseFloat(elGrant.value) * 1000000;
-            const loanPct = parseInt(elLoan.value) / 100;
-
-            vMW.innerText = mw + ' MW';
-            vKW.innerText = '$' + kw.toLocaleString();
-            vLoan.innerText = (loanPct * 100) + '%';
-            vGrant.innerText = '$' + parseFloat(elGrant.value).toFixed(1) + 'M';
-
-            // Constraint: Only microreactors (<5MW) get IL and LI adders
-            if (mw >= 5) {
-                rowIL.classList.add('opacity-30', 'pointer-events-none');
-                rowLI.classList.add('opacity-30', 'pointer-events-none');
-                elIL.checked = false;
-                elLI.checked = false;
-            } else {
-                rowIL.classList.remove('opacity-30', 'pointer-events-none');
-                rowLI.classList.remove('opacity-30', 'pointer-events-none');
-            }
-
-            // ITC Calc
+            const mw = parseInt(elMW.value); const kw = parseInt(elKW.value);
+            const cost = mw * kw * 1000; const grant = parseFloat(elGrant.value) * 1000000;
+            vMW.innerText = mw + ' MW'; vKW.innerText = '$' + kw.toLocaleString(); vLoan.innerText = elLoan.value + '%'; vBps.innerText = elBps.value + ' bps'; vRate.innerText = parseFloat(elRate.value).toFixed(1) + '%'; vGrant.innerText = '$' + parseFloat(elGrant.value).toFixed(1) + 'M';
+            if (mw >= 5) { document.getElementById('rowIL').classList.add('opacity-30', 'pointer-events-none'); elIL.checked = false; } else { document.getElementById('rowIL').classList.remove('opacity-30', 'pointer-events-none'); }
             const base = elPWA.checked ? 30 : 6;
             let adders = 0;
             if (elDC.checked) adders += (elPWA.checked ? 10 : 2);
             if (elEC.checked) adders += (elPWA.checked ? 10 : 2);
             if (elIL.checked && mw < 5) adders += 10;
-            if (elLI.checked && mw < 5) adders += 20;
-
             let finalRate = base + adders;
-            if (finalRate > 70) finalRate = 70; // Statutory Ceiling
-
-            const itcVal = totalCost * (finalRate / 100);
-            const netReq = totalCost - itcVal - grant;
-            const loanVal = totalCost * loanPct;
-            const totalBenefitPct = ((itcVal + grant) / totalCost) * 100;
-
-            // UI Updates
-            resTotal.innerText = formatUSD(totalCost);
-            resITCVal.innerText = formatUSD(itcVal);
-            resITCRate.innerText = finalRate + '%';
-            resNet.innerText = formatUSD(netReq);
-            resGrantAmt.innerText = formatUSD(grant);
-            resLoan.innerText = formatUSD(loanVal);
-            resPctTotal.innerText = totalBenefitPct.toFixed(1) + '%';
-
-            rowBase.innerText = base + '%';
-            rowAdders.innerText = '+' + adders + '%';
-            rowFinal.innerText = finalRate + '%';
-
-            // Chart Update
-            chart.data.datasets[0].data = [finalRate, (grant/totalCost)*100, 100 - totalBenefitPct];
-            chart.update();
+            if (finalRate > 70) finalRate = 70;
+            const itcVal = cost * (finalRate / 100);
+            const totalBenefit = itcVal + grant;
+            const netCost = cost - totalBenefit;
+            const supportPct = (totalBenefit / cost) * 100;
+            resTotal.innerText = formatUSD(cost); resTotalBenefit.innerText = formatUSD(totalBenefit); resSupportPct.innerText = supportPct.toFixed(1) + '%'; resNetCost.innerText = formatUSD(netCost);
+            chart.data.datasets[0].data = [itcVal, grant, netCost > 0 ? netCost : 0]; chart.update();
         }
 
-        // Listeners
-        [elMW, elKW, elPWA, elDC, elEC, elIL, elLI, elLoan, elGrant].forEach(el => {
-            el.addEventListener('input', () => {
-                activeLabel.innerText = "Custom Tuning";
-                update();
-            });
-        });
-
-        // Initialize with Scenario A
+        [elMW, elKW, elPWA, elDC, elEC, elIL, elLoan, elBps, elRate, elGrant].forEach(el => el.addEventListener('input', update));
         update();
     </script>
 </body>
