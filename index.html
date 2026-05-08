@@ -36,13 +36,6 @@
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans leading-relaxed selection:bg-teal-100">
 
-    <!-- Application Structure Plan: 
-         1. Guide Section (Top): Beginner-friendly explanation of Direct Pay, the 5MW line, and Uranium legacy bonuses.
-         2. Scenario Selection: Quick-load buttons for Scenarios A, B, and C.
-         3. Scenario Modeler: The high-fidelity modeler with all 10 input rows and technical notes.
-         4. Compliance & Timeline: Crucial deadlines for Tribal councils.
-    -->
-
     <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md border-b border-slate-200 z-50 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
             <div class="flex items-center space-x-3">
@@ -58,7 +51,6 @@
         </div>
     </nav>
 
-    <!-- HEADER / INTRO -->
     <header class="pt-32 pb-20 bg-tribal-950 text-white scroll-mt">
         <div class="max-w-6xl mx-auto px-4">
             <div class="inline-block bg-teal px-3 py-1 rounded text-[10px] font-bold uppercase tracking-widest mb-6">Sovereign Finance Masterclass</div>
@@ -75,12 +67,10 @@
 
     <main class="max-w-7xl mx-auto px-4 py-20 space-y-32">
 
-        <!-- NEW SECTION: BEGINNER FRIENDLY GUIDE -->
         <section id="guide" class="scroll-mt">
             <h2 class="text-3xl font-black text-tribal-950 uppercase mb-12 text-center tracking-tighter">New to Tribal Nuclear Benefits?</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-                <!-- Concept 1 -->
                 <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-md transition">
                     <div class="w-12 h-12 bg-teal/10 text-teal rounded-full flex items-center justify-center text-xl font-bold mb-4">1</div>
                     <h3 class="font-bold text-lg mb-2">What is "Direct Pay"?</h3>
@@ -89,7 +79,6 @@
                     </p>
                     <a href="https://www.irs.gov/pub/irs-pdf/p5817g.pdf" target="_blank" class="source-tag block mt-4">Source: IRS Pub. 5817-G</a>
                 </div>
-                <!-- Concept 2 -->
                 <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-md transition">
                     <div class="w-12 h-12 bg-copper/10 text-copper rounded-full flex items-center justify-center text-xl font-bold mb-4">2</div>
                     <h3 class="font-bold text-lg mb-2">The "5 Megawatt Line"</h3>
@@ -98,7 +87,6 @@
                     </p>
                     <a href="https://www.irs.gov/pub/irs-drop/rp-25-11.pdf" target="_blank" class="source-tag block mt-4">Source: IRS Rev. Proc. 2025-11</a>
                 </div>
-                <!-- Concept 3 -->
                 <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-md transition">
                     <div class="w-12 h-12 bg-tribal-950/10 text-tribal-950 rounded-full flex items-center justify-center text-xl font-bold mb-4">3</div>
                     <h3 class="font-bold text-lg mb-2">The "Uranium Legacy"</h3>
@@ -109,7 +97,6 @@
                 </div>
             </div>
 
-            <!-- Stacking Rules Illustration -->
             <div class="bg-slate-900 rounded-[3rem] p-10 text-white flex flex-col lg:flex-row items-center gap-12">
                 <div class="lg:w-1/2">
                     <h3 class="text-2xl font-black mb-6 uppercase tracking-tight">How the "Stack" Works</h3>
@@ -132,7 +119,6 @@
             </div>
         </section>
 
-        <!-- SCENARIO MODELER SECTION -->
         <section id="modeler" class="scroll-mt space-y-12">
             <div class="border-b border-slate-200 pb-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
                 <div>
@@ -147,8 +133,6 @@
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-                
-                <!-- INPUT TABLE (ASSUMPTIONS) - NO CHANGES TO LOGIC OR STRUCTURE -->
                 <div class="lg:col-span-8 overflow-x-auto bg-white rounded-3xl shadow-xl border border-slate-200">
                     <table class="w-full text-left border-collapse">
                         <thead>
@@ -222,7 +206,6 @@
                     </table>
                 </div>
 
-                <!-- DASHBOARD OUTPUTS -->
                 <div class="lg:col-span-4 space-y-6">
                     <div class="bg-tribal-950 p-6 rounded-3xl text-white shadow-xl">
                         <span class="text-[10px] font-black uppercase tracking-widest text-slate-400 block mb-1">Total Project Cost</span>
@@ -235,7 +218,6 @@
                             <span class="text-[10px] text-slate-500 uppercase font-bold">% of Capital Cost:</span>
                             <span id="resSupportPct" class="text-sm font-black text-teal">67.5%</span>
                         </div>
-                        <!-- NEW: Detailed Federal Benefit Breakdown -->
                         <div id="benefitBreakdown" class="mt-4 pt-3 border-t border-slate-100 space-y-2">
                             <div class="flex justify-between text-[10px] uppercase tracking-tighter">
                                 <span class="text-slate-500 font-bold">Base ITC:</span>
@@ -272,7 +254,6 @@
             </div>
         </section>
 
-        <!-- COMPLIANCE & DEADLINES -->
         <section id="compliance" class="scroll-mt pt-12">
             <h2 class="text-3xl font-black text-tribal-950 uppercase mb-8">Compliance Timeline & Critical Rules</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -310,60 +291,24 @@
             'C': { mw: 1000, kw: 6500, pwa: true, dc: true, ec: true, il: false, loan: 80, bps: 200, rate: 7, grant: 1365.0 }
         };
 
-        const elMW = document.getElementById('inMW'), elKW = document.getElementById('inKW');
-        const elPWA = document.getElementById('inPWA'), elDC = document.getElementById('inDC'), elEC = document.getElementById('inEC'), elIL = document.getElementById('inIL');
-        const elLoan = document.getElementById('inLoan'), elBps = document.getElementById('inBps'), elRate = document.getElementById('inRate'), elGrant = document.getElementById('inGrant');
+        let elMW, elKW, elPWA, elDC, elEC, elIL, elLoan, elBps, elRate, elGrant;
+        let vMW, vKW, vLoan, vBps, vRate, vGrant, resTotal, resTotalBenefit, resSupportPct, resNetCost, activeLabel;
+        let brkBase, brkDC, brkEC, brkIL, brkGrant, chart;
 
-        const vMW = document.getElementById('vMW'), vKW = document.getElementById('vKW'), vLoan = document.getElementById('vLoan'), vBps = document.getElementById('vBps'), vRate = document.getElementById('vRate'), vGrant = document.getElementById('vGrant');
-        const resTotal = document.getElementById('resTotal'), resTotalBenefit = document.getElementById('resTotalBenefit'), resSupportPct = document.getElementById('resSupportPct'), resNetCost = document.getElementById('resNetCost');
-        const activeLabel = document.getElementById('activeScenarioLabel');
-
-        // Breakdown Elements
-        const brkBase = document.getElementById('brkBase'), brkDC = document.getElementById('brkDC'), brkEC = document.getElementById('brkEC'), brkIL = document.getElementById('brkIL'), brkGrant = document.getElementById('brkGrant');
-
-        const ctx = document.getElementById('resChart').getContext('2d');
-        let chart = new Chart(ctx, {
-            type: 'doughnut',
-            data: { labels: ['ITC Refund', 'Grant Support', 'Tribe Share'], datasets: [{ data: [50, 15, 35], backgroundColor: ['#0d9488', '#b45309', '#0f172a'], borderWidth: 0 }] },
-            options: { cutout: '80%', plugins: { legend: { display: false } } }
-        });
-
-        const guideCtx = document.getElementById('guideChart').getContext('2d');
-        new Chart(guideCtx, {
-            type: 'bar',
-            data: {
-                labels: ['Standard Project', 'Tribal Microreactor'],
-                datasets: [
-                    { label: 'Base Savings', data: [30, 30], backgroundColor: '#1e293b' },
-                    { label: 'Bonuses (Stack)', data: [10, 40], backgroundColor: '#0d9488' }
-                ]
-            },
-            options: {
-                indexAxis: 'y',
-                scales: { x: { stacked: true, max: 100 }, y: { stacked: true } },
-                plugins: { legend: { display: false } },
-                responsive: true,
-                maintainAspectRatio: false
-            }
-        });
-
-        function formatUSD(num) {
-            if(num >= 1e9) return '$' + (num/1e9).toFixed(2) + 'B';
-            if(num >= 1e6) return '$' + (num/1e6).toFixed(1) + 'M';
-            return '$' + Math.round(num).toLocaleString();
-        }
-
-        function loadScenario(key) {
+        // Exposed globally for the inline onclick handlers
+        window.loadScenario = function(key) {
             const s = scenarios[key];
+            if(!s) return;
             elMW.value = s.mw; elKW.value = s.kw; elPWA.checked = s.pwa; elDC.checked = s.dc; elEC.checked = s.ec; elIL.checked = s.il; elLoan.value = s.loan; elBps.value = s.bps; elRate.value = s.rate; elGrant.value = s.grant;
             activeLabel.innerText = "Scenario " + key;
             update();
-        }
+        };
 
         function update() {
             const mw = parseInt(elMW.value); const kw = parseInt(elKW.value);
             const cost = mw * kw * 1000; const grant = parseFloat(elGrant.value) * 1000000;
             vMW.innerText = mw + ' MW'; vKW.innerText = '$' + kw.toLocaleString(); vLoan.innerText = elLoan.value + '%'; vBps.innerText = elBps.value + ' bps'; vRate.innerText = parseFloat(elRate.value).toFixed(1) + '%'; vGrant.innerText = '$' + parseFloat(elGrant.value).toFixed(1) + 'M';
+            
             if (mw >= 5) { document.getElementById('rowIL').classList.add('opacity-30', 'pointer-events-none'); elIL.checked = false; } else { document.getElementById('rowIL').classList.remove('opacity-30', 'pointer-events-none'); }
             
             const base = elPWA.checked ? 30 : 6;
@@ -380,13 +325,8 @@
             const supportPct = (totalBenefit / cost) * 100;
             const grantPct = (grant / cost) * 100;
 
-            // Update Main Outputs
-            resTotal.innerText = formatUSD(cost);
-            resTotalBenefit.innerText = formatUSD(totalBenefit);
-            resSupportPct.innerText = supportPct.toFixed(1) + '%';
-            resNetCost.innerText = formatUSD(netCost);
-
-            // Update Breakdown Outputs
+            resTotal.innerText = formatUSD(cost); resTotalBenefit.innerText = formatUSD(totalBenefit); resSupportPct.innerText = supportPct.toFixed(1) + '%'; resNetCost.innerText = formatUSD(netCost);
+            
             brkBase.innerText = base + '%';
             brkDC.innerText = '+' + dcRate + '%';
             brkEC.innerText = '+' + ecRate + '%';
@@ -397,8 +337,50 @@
             chart.update();
         }
 
-        [elMW, elKW, elPWA, elDC, elEC, elIL, elLoan, elBps, elRate, elGrant].forEach(el => el.addEventListener('input', update));
-        update();
+        function formatUSD(num) {
+            if(num >= 1e9) return '$' + (num/1e9).toFixed(2) + 'B';
+            if(num >= 1e6) return '$' + (num/1e6).toFixed(1) + 'M';
+            return '$' + Math.round(num).toLocaleString();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            elMW = document.getElementById('inMW'); elKW = document.getElementById('inKW');
+            elPWA = document.getElementById('inPWA'); elDC = document.getElementById('inDC'); elEC = document.getElementById('inEC'); elIL = document.getElementById('inIL');
+            elLoan = document.getElementById('inLoan'); elBps = document.getElementById('inBps'); elRate = document.getElementById('inRate'); elGrant = document.getElementById('inGrant');
+            vMW = document.getElementById('vMW'); vKW = document.getElementById('vKW'); vLoan = document.getElementById('vLoan'); vBps = document.getElementById('vBps'); vRate = document.getElementById('vRate'); vGrant = document.getElementById('vGrant');
+            resTotal = document.getElementById('resTotal'); resTotalBenefit = document.getElementById('resTotalBenefit'); resSupportPct = document.getElementById('resSupportPct'); resNetCost = document.getElementById('resNetCost');
+            activeLabel = document.getElementById('activeScenarioLabel');
+            brkBase = document.getElementById('brkBase'); brkDC = document.getElementById('brkDC'); brkEC = document.getElementById('brkEC'); brkIL = document.getElementById('brkIL'); brkGrant = document.getElementById('brkGrant');
+
+            const ctx = document.getElementById('resChart').getContext('2d');
+            chart = new Chart(ctx, {
+                type: 'doughnut',
+                data: { labels: ['ITC Refund', 'Grant Support', 'Tribe Share'], datasets: [{ data: [50, 15, 35], backgroundColor: ['#0d9488', '#b45309', '#0f172a'], borderWidth: 0 }] },
+                options: { cutout: '80%', plugins: { legend: { display: false } } }
+            });
+
+            const guideCtx = document.getElementById('guideChart').getContext('2d');
+            new Chart(guideCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Standard Project', 'Tribal Microreactor'],
+                    datasets: [
+                        { label: 'Base Savings', data: [30, 30], backgroundColor: '#1e293b' },
+                        { label: 'Bonuses (Stack)', data: [10, 40], backgroundColor: '#0d9488' }
+                    ]
+                },
+                options: {
+                    indexAxis: 'y',
+                    scales: { x: { stacked: true, max: 100 }, y: { stacked: true } },
+                    plugins: { legend: { display: false } },
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+
+            [elMW, elKW, elPWA, elDC, elEC, elIL, elLoan, elBps, elRate, elGrant].forEach(el => el.addEventListener('input', update));
+            loadScenario('A');
+        });
     </script>
 </body>
 </html>
