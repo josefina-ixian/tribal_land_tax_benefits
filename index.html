@@ -222,7 +222,7 @@
                     </table>
                 </div>
 
-                <!-- DASHBOARD OUTPUTS - NO CHANGES -->
+                <!-- DASHBOARD OUTPUTS -->
                 <div class="lg:col-span-4 space-y-6">
                     <div class="bg-tribal-950 p-6 rounded-3xl text-white shadow-xl">
                         <span class="text-[10px] font-black uppercase tracking-widest text-slate-400 block mb-1">Total Project Cost</span>
@@ -234,6 +234,29 @@
                         <div class="flex justify-between items-center mt-3 pt-3 border-t border-slate-100">
                             <span class="text-[10px] text-slate-500 uppercase font-bold">% of Capital Cost:</span>
                             <span id="resSupportPct" class="text-sm font-black text-teal">67.5%</span>
+                        </div>
+                        <!-- NEW: Detailed Federal Benefit Breakdown -->
+                        <div id="benefitBreakdown" class="mt-4 pt-3 border-t border-slate-100 space-y-2">
+                            <div class="flex justify-between text-[10px] uppercase tracking-tighter">
+                                <span class="text-slate-500 font-bold">Base ITC:</span>
+                                <span id="brkBase" class="font-black text-teal">30%</span>
+                            </div>
+                            <div class="flex justify-between text-[10px] uppercase tracking-tighter">
+                                <span class="text-slate-500 font-bold">Domestic Content:</span>
+                                <span id="brkDC" class="font-black text-teal">+10%</span>
+                            </div>
+                            <div class="flex justify-between text-[10px] uppercase tracking-tighter">
+                                <span class="text-slate-500 font-bold">Energy Community:</span>
+                                <span id="brkEC" class="font-black text-teal">+0%</span>
+                            </div>
+                            <div class="flex justify-between text-[10px] uppercase tracking-tighter">
+                                <span class="text-slate-500 font-bold">Indian Land Bonus:</span>
+                                <span id="brkIL" class="font-black text-teal">+10%</span>
+                            </div>
+                            <div class="flex justify-between text-[10px] uppercase tracking-tighter border-t border-slate-50 pt-1">
+                                <span class="text-slate-500 font-bold">DOE-IE Grant Value:</span>
+                                <span id="brkGrant" class="font-black text-teal">17.5%</span>
+                            </div>
                         </div>
                     </div>
                     <div class="bg-tribal-800 p-6 rounded-3xl text-white shadow-xl">
@@ -249,7 +272,7 @@
             </div>
         </section>
 
-        <!-- COMPLIANCE & DEADLINES - UPDATED WITH FEOC AND OBBBA INFO -->
+        <!-- COMPLIANCE & DEADLINES -->
         <section id="compliance" class="scroll-mt pt-12">
             <h2 class="text-3xl font-black text-tribal-950 uppercase mb-8">Compliance Timeline & Critical Rules</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -295,6 +318,9 @@
         const resTotal = document.getElementById('resTotal'), resTotalBenefit = document.getElementById('resTotalBenefit'), resSupportPct = document.getElementById('resSupportPct'), resNetCost = document.getElementById('resNetCost');
         const activeLabel = document.getElementById('activeScenarioLabel');
 
+        // Breakdown Elements
+        const brkBase = document.getElementById('brkBase'), brkDC = document.getElementById('brkDC'), brkEC = document.getElementById('brkEC'), brkIL = document.getElementById('brkIL'), brkGrant = document.getElementById('brkGrant');
+
         const ctx = document.getElementById('resChart').getContext('2d');
         let chart = new Chart(ctx, {
             type: 'doughnut',
@@ -302,7 +328,6 @@
             options: { cutout: '80%', plugins: { legend: { display: false } } }
         });
 
-        // NEW: Guide Chart logic
         const guideCtx = document.getElementById('guideChart').getContext('2d');
         new Chart(guideCtx, {
             type: 'bar',
@@ -340,19 +365,36 @@
             const cost = mw * kw * 1000; const grant = parseFloat(elGrant.value) * 1000000;
             vMW.innerText = mw + ' MW'; vKW.innerText = '$' + kw.toLocaleString(); vLoan.innerText = elLoan.value + '%'; vBps.innerText = elBps.value + ' bps'; vRate.innerText = parseFloat(elRate.value).toFixed(1) + '%'; vGrant.innerText = '$' + parseFloat(elGrant.value).toFixed(1) + 'M';
             if (mw >= 5) { document.getElementById('rowIL').classList.add('opacity-30', 'pointer-events-none'); elIL.checked = false; } else { document.getElementById('rowIL').classList.remove('opacity-30', 'pointer-events-none'); }
+            
             const base = elPWA.checked ? 30 : 6;
-            let adders = 0;
-            if (elDC.checked) adders += (elPWA.checked ? 10 : 2);
-            if (elEC.checked) adders += (elPWA.checked ? 10 : 2);
-            if (elIL.checked && mw < 5) adders += 10;
-            let finalRate = base + adders;
+            const dcRate = elDC.checked ? (elPWA.checked ? 10 : 2) : 0;
+            const ecRate = elEC.checked ? (elPWA.checked ? 10 : 2) : 0;
+            const ilRate = (elIL.checked && mw < 5) ? 10 : 0;
+            
+            let finalRate = base + dcRate + ecRate + ilRate;
             if (finalRate > 70) finalRate = 70;
+            
             const itcVal = cost * (finalRate / 100);
             const totalBenefit = itcVal + grant;
             const netCost = cost - totalBenefit;
             const supportPct = (totalBenefit / cost) * 100;
-            resTotal.innerText = formatUSD(cost); resTotalBenefit.innerText = formatUSD(totalBenefit); resSupportPct.innerText = supportPct.toFixed(1) + '%'; resNetCost.innerText = formatUSD(netCost);
-            chart.data.datasets[0].data = [itcVal, grant, netCost > 0 ? netCost : 0]; chart.update();
+            const grantPct = (grant / cost) * 100;
+
+            // Update Main Outputs
+            resTotal.innerText = formatUSD(cost);
+            resTotalBenefit.innerText = formatUSD(totalBenefit);
+            resSupportPct.innerText = supportPct.toFixed(1) + '%';
+            resNetCost.innerText = formatUSD(netCost);
+
+            // Update Breakdown Outputs
+            brkBase.innerText = base + '%';
+            brkDC.innerText = '+' + dcRate + '%';
+            brkEC.innerText = '+' + ecRate + '%';
+            brkIL.innerText = '+' + ilRate + '%';
+            brkGrant.innerText = grantPct.toFixed(1) + '%';
+
+            chart.data.datasets[0].data = [itcVal, grant, netCost > 0 ? netCost : 0]; 
+            chart.update();
         }
 
         [elMW, elKW, elPWA, elDC, elEC, elIL, elLoan, elBps, elRate, elGrant].forEach(el => el.addEventListener('input', update));
